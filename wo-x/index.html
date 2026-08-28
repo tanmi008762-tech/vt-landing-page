@@ -3,85 +3,46 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="使用 VT Markets 了解外汇、黄金、指数等全球市场。支持真实账户与模拟账户，选择适合您的交易平台。" />
-    <title>VT Markets | 了解全球市场，选择适合您的交易平台</title>
+    <meta name="description" content="VT Markets 账户注册入口。先了解平台，再决定是否申请。" />
+    <title>VT Markets | 开始注册</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="topline"><span class="pulse"></span> 市场开放 · 行情仅作参考</div>
-    <header class="site-header">
-      <a class="brand" href="#top" aria-label="VT Markets 首页"><img src="assets/vt-logo.webp" alt="VT Markets" /></a>
-      <nav class="desktop-nav" aria-label="主导航">
-        <a href="#marches">市场</a>
-        <a href="#avantages">为什么选择 VT Markets</a>
-        <a href="#plateformes">交易平台</a>
-        <a href="#faq">常见问题</a>
-      </nav>
-      <div class="header-actions">
-        <a class="login-link" href="https://myaccount.vtmarketsfr.com/login">登录</a>
-        <a class="button button-small button-blue" href="#ouvrir">开立账户 <span>↗</span></a>
-      </div>
-      <button class="menu-toggle" aria-label="打开菜单"><span></span><span></span></button>
+    <header class="header">
+      <a class="brand" href="#landing" aria-label="VT Markets 首页"><img src="assets/vt-logo.webp" alt="VT Markets" /></a>
+      <div class="header-actions"><span>已有账户？</span><a href="https://myaccount.vtmarketsfr.com/login">登录</a><span class="language">中文⌄</span></div>
     </header>
 
-    <main id="top">
-      <section class="hero section-dark">
-        <div class="hero-grid"></div>
-        <div class="hero-copy">
-          <p class="eyebrow"><span class="eyebrow-line"></span> 全球多资产经纪商</p>
-          <h1>市场在变化。<br /><em>您的策略也应如此。</em></h1>
-          <p class="hero-lede">通过一站式平台了解外汇、黄金、指数等多类市场，按您的计划做出交易决策。</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#ouvrir">了解交易平台 <span>↗</span></a>
-            <a class="button button-ghost" href="#demo">体验模拟账户 <span>→</span></a>
+    <main>
+      <section class="screen landing-screen" id="landing">
+        <div class="landing-bg"><img src="assets/hero-market.webp" alt="金融市场视觉" /></div><div class="landing-shade"></div>
+        <div class="landing-content">
+          <p class="eyebrow"><span></span> VT Markets · 全球多资产平台</p>
+          <h1>注册账户，<br /><em>从了解开始。</em></h1>
+          <p class="landing-copy">了解外汇、黄金、指数等市场产品，选择适合您的账户和平台。</p>
+          <div class="landing-actions"><button class="button button-primary" type="button" data-go="register">开始注册 <span>↗</span></button><button class="button button-outline" type="button" data-go="register" data-mode="demo">先体验模拟账户 <span>→</span></button></div>
+          <p class="landing-note">模拟环境不涉及真实资金。产品和服务以您所在地区的适用条件为准。</p>
+        </div>
+        <div class="landing-mark"><span>●</span><span>了解产品</span><i></i><span>完成申请</span></div>
+      </section>
+
+      <section class="screen register-screen" id="register" hidden>
+        <div class="register-wrap">
+          <button class="back-button" type="button" data-go="landing">← 返回首页</button>
+          <div class="register-grid">
+            <div class="register-intro"><p class="eyebrow eyebrow-dark"><span></span> 账户申请</p><h2>选择您的<br /><em>开始方式。</em></h2><p>填写基础信息，进入官方申请流程。您可以先选择模拟账户熟悉平台。</p><div class="help-links"><button type="button" data-info="features">了解平台功能 <span>↗</span></button><button type="button" data-info="products">查看可用产品 <span>↗</span></button><button type="button" data-info="risk">阅读风险提示 <span>↗</span></button></div></div>
+            <div class="register-card"><div class="card-top"><span>账户注册</span><b>⌁ 受保护的流程</b></div><div class="account-tabs" role="tablist"><button type="button" class="tab active" data-mode="real" role="tab" aria-selected="true">真实账户</button><button type="button" class="tab" data-mode="demo" role="tab" aria-selected="false">模拟账户</button></div><form id="register-form"><label>姓名<input name="name" type="text" placeholder="请输入姓名" autocomplete="name" required /></label><label>邮箱<input name="email" type="email" placeholder="请输入邮箱" autocomplete="email" required /></label><label class="agree"><input type="checkbox" required /><span>我已阅读并同意相关条款与隐私政策</span></label><button class="submit button-primary" type="submit">继续 <span>↗</span></button></form><p class="form-footnote">提交后将进入官方账户申请页面。本页不收集资金或交易指令。</p><div class="success" role="status">信息已准备好，请继续完成官方申请。</div></div>
           </div>
-          <div class="hero-proof">
-            <div class="avatars" aria-hidden="true"><span>JM</span><span>AL</span><span>SK</span><b>+</b></div>
-            <p><strong>300 万+</strong> 名交易者使用<br /><small>覆盖 160 多个国家和地区</small></p>
-          </div>
-        </div>
-        <div class="hero-visual">
-          <div class="visual-orbit orbit-one"></div><div class="visual-orbit orbit-two"></div>
-          <div class="market-image"><img src="assets/hero-market.webp" alt="金融市场抽象视觉" /></div>
-          <div class="quote-card quote-gold"><span class="quote-label">XAUUSD</span><strong>示例行情</strong><span class="up">仅作参考</span><svg viewBox="0 0 120 38" role="img" aria-label="示例上涨趋势"><polyline points="0,30 16,25 28,28 43,12 59,18 77,7 94,12 120,2" fill="none" stroke="currentColor" stroke-width="2.5" /></svg></div>
-          <div class="quote-card quote-eur"><span class="quote-label">EURUSD</span><strong>示例行情</strong><span class="down">仅作参考</span><svg viewBox="0 0 120 38" role="img" aria-label="示例下跌趋势"><polyline points="0,6 15,14 30,10 46,22 62,17 76,30 92,23 120,35" fill="none" stroke="currentColor" stroke-width="2.5" /></svg></div>
-          <div class="floating-tag"><span class="tag-dot"></span> 条件因品种和市场而异</div>
-        </div>
-        <a class="scroll-cue" href="#marches"><span></span> 继续了解</a>
-      </section>
-
-      <section class="ticker" id="marches" aria-label="Marchés disponibles">
-        <div class="ticker-label">可了解的市场</div>
-        <div class="ticker-items"><span><b>外汇</b><small> EURUSD · GBPUSD</small></span><span><b>黄金</b><small> XAUUSD · XAGUSD</small></span><span><b>指数</b><small> NAS100 · GER40</small></span><span><b>能源</b><small> USOIL · UKOIL</small></span><span><b>加密资产</b><small> BTCUSD · ETHUSD</small></span></div>
-      </section>
-
-      <section class="section section-light" id="avantages">
-        <div class="section-intro split-intro"><div><p class="eyebrow eyebrow-dark"><span class="eyebrow-line"></span> 为交易做好准备</p><h2>从信息到执行，<br /><em>保持清晰判断。</em></h2></div><p>了解产品、平台和申请流程，在每一步都掌握必要信息，再决定是否继续。</p></div>
-        <div class="feature-grid">
-          <article class="feature-card feature-card-dark"><div class="feature-media"><img src="assets/feature-1.webp" alt="图表和市场分析" /></div><div class="feature-body"><span class="feature-index">01</span><h3>用数据<br />辅助判断。</h3><p>通过图表和市场信息，帮助您形成自己的交易计划。</p><a href="#plateformes" class="text-link">查看交易平台 <span>→</span></a></div></article>
-          <article class="feature-card feature-card-blue"><div class="feature-media"><img src="assets/feature-2.webp" alt="移动端交易界面" /></div><div class="feature-body"><span class="feature-index">02</span><h3>随时随地<br />使用。</h3><p>VT Markets App、WebTrader、MetaTrader 或 TradingView，按您的习惯选择。</p><a href="#plateformes" class="text-link">选择平台 <span>→</span></a></div></article>
-          <article class="feature-card feature-card-gold"><div class="feature-media"><img src="assets/feature-3.webp" alt="客户支持与陪伴" /></div><div class="feature-body"><span class="feature-index">03</span><h3>需要时，<br />有人回应。</h3><p>多语言支持团队，帮助您了解申请流程和平台使用方式。</p><a href="#ouvrir" class="text-link">了解支持服务 <span>→</span></a></div></article>
         </div>
       </section>
-
-      <section class="stats-band"><div><strong>300 万+</strong><span>交易者使用</span></div><div><strong>1,000+</strong><span>可用交易产品</span></div><div><strong>24/5</strong><span>多语言支持</span></div><div><strong>160+</strong><span>覆盖国家和地区</span></div></section>
-
-      <section class="section opening-section" id="ouvrir">
-        <div class="opening-copy"><p class="eyebrow eyebrow-dark"><span class="eyebrow-line"></span> 开始之前</p><h2>申请账户，<br /><em>按步骤完成。</em></h2><p class="opening-lede">申请流程清晰，所需时间会因地区、账户类型和资料审核情况而有所不同。</p><div class="steps"><div class="step"><span>01</span><div><h3>创建账户信息</h3><p>填写基础资料，开始申请。</p></div></div><div class="step"><span>02</span><div><h3>完成身份验证</h3><p>根据要求提交相关资料。</p></div></div><div class="step"><span>03</span><div><h3>选择平台并开始</h3><p>审核通过后使用适用产品。</p></div></div></div></div>
-        <div class="signup-panel"><div class="panel-top"><span class="panel-kicker">账户申请</span><span class="lock">⌁ 受保护的流程</span></div><h3>选择您的开始方式</h3><p>先了解产品，再决定是否继续。</p><div class="account-options"><a class="account-option active" href="https://www.vtmarketsfr.com/trade-now/"><span class="option-icon">↗</span><span><strong>真实账户</strong><small>使用适用的真实交易产品</small></span><span class="option-arrow">→</span></a><a class="account-option" id="demo" href="https://www.vtmarketsfr.com/demo-account/"><span class="option-icon">◌</span><span><strong>模拟账户</strong><small>模拟环境，不涉及真实资金</small></span><span class="option-arrow">→</span></a></div><p class="panel-note">继续即表示您同意相关条款和隐私政策。</p></div>
-      </section>
-
-      <section class="platform-section section-dark" id="plateformes"><div class="platform-content"><p class="eyebrow"><span class="eyebrow-line"></span> 灵活选择</p><h2>选择您的市场，<br /><em>匹配您的平台。</em></h2><p>支持 VT Markets App、MetaTrader 4/5、TradingView 和 WebTrader，具体可用平台取决于您的地区和账户类型。</p><div class="platform-list"><span class="platform-active">VT Markets App</span><span>MetaTrader 5</span><span>TradingView</span><span>WebTrader</span></div><a class="button button-primary" href="#ouvrir">查看开户方式 <span>↗</span></a></div><div class="platform-visual"><img src="assets/steps.webp" alt="开始交易的步骤预览" /><div class="platform-badge"><span>—</span><div>平台评价<small>请以官方来源为准</small></div></div></div></section>
-
-      <section class="faq-section section section-light" id="faq"><div class="section-intro"><p class="eyebrow eyebrow-dark"><span class="eyebrow-line"></span> 需要进一步了解？</p><h2>开始之前，<br /><em>先看常见问题。</em></h2></div><div class="faq-list"><details open><summary>最低入金是多少？ <span>+</span></summary><p>金额会因账户类型和支付方式而异，具体条件请以申请流程和官方交易条件为准。</p></details><details><summary>可以先体验再决定吗？ <span>+</span></summary><p>可以。模拟账户用于熟悉平台和市场环境，不涉及真实资金或真实订单执行。</p></details><details><summary>可以了解哪些市场？ <span>+</span></summary><p>外汇、贵金属、指数、能源、农产品、股票 CFD、ETF 和加密资产，具体取决于您的地区和账户类型。</p></details><details><summary>如何联系支持团队？ <span>+</span></summary><p>多语言支持团队通常提供 24/5 服务，具体渠道请以您的客户中心显示为准。</p></details></div></section>
     </main>
 
-    <footer class="footer"><div class="footer-main"><img src="assets/vt-logo.webp" alt="VT Markets" /><p>差价合约（CFD）属于复杂金融产品，因杠杆作用可能快速造成亏损。交易前请确认您理解相关风险，并核实适用的监管与账户条件。</p><div class="footer-links"><a href="#top">首页</a><a href="#avantages">为什么选择我们</a><a href="#faq">常见问题</a><a href="https://www.vtmarketsfr.com/regulation/">法律与监管</a></div></div><div class="footer-bottom"><span>© 2026 VT Markets</span><span>CFD · 外汇 · 多资产</span></div></footer>
-    <div class="mobile-cta"><a href="#demo">模拟账户</a><a href="#ouvrir">开立账户 <span>↗</span></a></div>
-    <div class="toast" role="status" aria-live="polite">您的申请已准备好，即将跳转到开户页面…</div>
+    <div class="info-drawer" aria-hidden="true"><div class="drawer-backdrop" data-close-info></div><aside class="drawer-panel"><button class="drawer-close" type="button" data-close-info aria-label="关闭">×</button><p class="eyebrow eyebrow-dark"><span></span> 进一步了解</p><h2 id="drawer-title">平台功能</h2><div id="drawer-content"></div></aside></div>
+    <footer class="footer"><img src="assets/vt-logo.webp" alt="VT Markets" /><span>© 2026 VT Markets</span><a href="https://www.vtmarketsfr.com/regulation/">法律与监管</a></footer>
+    <div class="mobile-cta"><button type="button" data-go="register">开始注册 <span>↗</span></button></div>
     <script src="script.js"></script>
   </body>
 </html>
