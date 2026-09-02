@@ -9,8 +9,10 @@ const drawerTitle = document.querySelector('#drawer-title');
 const drawerContent = document.querySelector('#drawer-content');
 
 function showScreen(target, updateHash = true) {
-  document.querySelectorAll('.screen').forEach((screen) => { screen.hidden = screen.id !== target; });
-  if (updateHash && location.hash !== `#${target}`) history.pushState(null, '', `#${target}`);
+  const targetScreen = document.getElementById(target);
+  if (targetScreen) document.querySelectorAll('.screen').forEach((screen) => { screen.hidden = screen.id !== target; });
+  if (updateHash && target === 'register' && location.hash !== '#register') history.pushState(null, '', '#register');
+  if (updateHash && target === 'landing' && location.hash) history.pushState(null, '', location.pathname + location.search);
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -21,9 +23,8 @@ document.querySelectorAll('[data-go]').forEach((button) => {
   });
 });
 
-window.addEventListener('hashchange', () => showScreen(location.hash === '#register' ? 'register' : 'landing', false));
-window.addEventListener('popstate', () => showScreen(location.hash === '#register' ? 'register' : 'landing', false));
-if (location.hash === '#register') showScreen('register', false);
+window.addEventListener('hashchange', () => { if (location.hash !== '#register') showScreen('landing', false); });
+window.addEventListener('popstate', () => showScreen('landing', false));
 
 document.querySelectorAll('.tab').forEach((tab) => {
   tab.addEventListener('click', () => {
@@ -36,7 +37,7 @@ document.querySelectorAll('.tab').forEach((tab) => {
 document.querySelector('#register-form')?.addEventListener('submit', (event) => {
   event.preventDefault();
   document.querySelector('.success')?.classList.add('show');
-  event.currentTarget.querySelector('.submit').textContent = '信息已准备好 ↗';
+  event.currentTarget.querySelector('.submit').innerHTML = '信息已准备好 <span>↗</span>';
 });
 
 document.querySelectorAll('[data-info]').forEach((button) => {
