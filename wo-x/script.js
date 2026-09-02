@@ -8,14 +8,22 @@ const drawer = document.querySelector('.info-drawer');
 const drawerTitle = document.querySelector('#drawer-title');
 const drawerContent = document.querySelector('#drawer-content');
 
+function showScreen(target, updateHash = true) {
+  document.querySelectorAll('.screen').forEach((screen) => { screen.hidden = screen.id !== target; });
+  if (updateHash && location.hash !== `#${target}`) history.pushState(null, '', `#${target}`);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 document.querySelectorAll('[data-go]').forEach((button) => {
   button.addEventListener('click', () => {
-    const target = button.dataset.go;
-    document.querySelectorAll('.screen').forEach((screen) => { screen.hidden = screen.id !== target; });
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    showScreen(button.dataset.go);
     if (button.dataset.mode) document.querySelector(`[data-mode="${button.dataset.mode}"]`)?.click();
   });
 });
+
+window.addEventListener('hashchange', () => showScreen(location.hash === '#register' ? 'register' : 'landing', false));
+window.addEventListener('popstate', () => showScreen(location.hash === '#register' ? 'register' : 'landing', false));
+if (location.hash === '#register') showScreen('register', false);
 
 document.querySelectorAll('.tab').forEach((tab) => {
   tab.addEventListener('click', () => {
