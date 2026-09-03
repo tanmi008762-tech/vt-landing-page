@@ -1,45 +1,123 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="VT Markets 账户注册入口。先了解平台，再决定是否申请。" />
-    <title>VT Markets | 开始注册</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="VT Markets account opening. Review current offers and start your official application." />
+    <title>VT Markets | Open an account</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20260903-qrcode-final" />
   </head>
   <body>
     <header class="header">
-      <a class="brand" href="#landing" aria-label="VT Markets 首页"><img src="assets/vt-logo.webp" alt="VT Markets" /></a>
-      <div class="header-actions"><span>已有账户？</span><a href="https://myaccount.vtmarketsfr.com/login">登录</a><span class="language">中文⌄</span></div>
+      <a class="brand" href="#landing" aria-label="VT Markets home"><img src="assets/vt-logo.webp" alt="VT Markets" /></a>
+      <nav class="header-nav" aria-label="Primary navigation"><a href="details.html#products">Markets</a><a href="details.html#features">Platforms</a><a href="details.html#offers">Promotions</a></nav>
+      <div class="header-actions"><a class="header-open" href="#register-form">Open account</a><a href="https://myaccount.vtmarketsfr.com/login">Log in</a><span class="language">EN⌄</span></div>
     </header>
 
     <main>
       <section class="screen landing-screen" id="landing">
-        <div class="landing-bg"><img src="assets/hero-market.webp" alt="金融市场视觉" /></div><div class="landing-shade"></div>
-        <div class="landing-content">
-          <p class="eyebrow"><span></span> VT Markets · 全球多资产平台</p>
-          <h1>开始注册，<br /><em>从这里开始。</em></h1>
-          <p class="landing-copy">填写基本信息，进入账户申请流程。</p>
-          <div class="landing-actions"><button class="button button-primary" type="button" data-go="register">开始注册 <span>↗</span></button></div>
+        <div class="landing-bg"><img src="assets/hero-market.webp" alt="Financial market visual" /></div><div class="landing-shade"></div>
+        <div class="hero-motion" aria-hidden="true">
+          <span class="light-beam beam-one"></span>
+          <span class="light-beam beam-two"></span>
+          <span class="market-glow glow-one"></span>
+          <span class="market-glow glow-two"></span>
+          <svg class="market-wave" viewBox="0 0 1440 620" preserveAspectRatio="none">
+            <path class="wave-line wave-line-soft" d="M-80 470 C120 430 220 510 390 400 S690 420 845 310 S1100 345 1520 145" />
+            <path class="wave-line wave-line-bright" d="M-80 500 C150 455 260 535 430 410 S720 450 895 300 S1160 330 1520 105" />
+          </svg>
+          <span class="motion-dot dot-one"></span>
+          <span class="motion-dot dot-two"></span>
+          <span class="motion-dot dot-three"></span>
         </div>
-      </section>
+        <div class="landing-layout">
+          <div class="landing-content">
+            <p class="eyebrow"><span></span> VT Markets · Global multi-asset platform</p>
+            <div class="banner-rotator" aria-label="Offers and platform highlights">
+              <div class="banner-viewport" tabindex="0" aria-label="Swipe left or right to change banner">
+                <div class="banner-track">
+                  <article class="banner-slide is-active" data-slide="0">
+                    <p class="banner-kicker">ACCOUNT OPENING</p>
+                    <h1>YOUR MARKET<span class="mobile-break"><br /></span> JOURNEY<br /><em>STARTS HERE.</em></h1>
+                    <p class="banner-copy">Choose your account type and begin a clear, step-by-step application.</p>
+                  </article>
+                  <article class="banner-slide" data-slide="1" aria-hidden="true">
+                    <p class="banner-kicker">CURRENT OFFERS</p>
+                    <h1>CURRENT OFFERS.<br /><em>CLEAR TERMS.</em></h1>
+                    <p class="banner-copy">Review current promotions, eligibility and conditions on the official pages.</p>
+                  </article>
+                  <article class="banner-slide" data-slide="2" aria-hidden="true">
+                    <p class="banner-kicker">PLATFORM CHOICE</p>
+                    <h1>ONE ACCOUNT.<br /><em>MULTIPLE MARKETS.</em></h1>
+                    <p class="banner-copy">Explore platform features and available products before opening an account.</p>
+                  </article>
+                </div>
+              </div>
+              <div class="banner-controls" aria-label="Switch banner">
+                <button type="button" class="banner-arrow" data-banner-prev aria-label="Previous slide">←</button>
+                <div class="banner-dots" role="tablist" aria-label="Banner slides">
+                  <button type="button" class="banner-dot is-active" data-banner-dot="0" role="tab" aria-selected="true" aria-label="Slide 1"></button>
+                  <button type="button" class="banner-dot" data-banner-dot="1" role="tab" aria-selected="false" aria-label="Slide 2"></button>
+                  <button type="button" class="banner-dot" data-banner-dot="2" role="tab" aria-selected="false" aria-label="Slide 3"></button>
+                </div>
+                <button type="button" class="banner-arrow" data-banner-next aria-label="Next slide">→</button>
+              </div>
+            </div>
+            <a class="landing-promo" href="details.html#offers">
+              <div class="promo-label">FEATURED PROMOTION</div>
+              <div class="promo-main">
+                <p class="promo-kicker">ACCOUNT OPENING</p>
+                <h2>Explore current<br /><em>account offers</em></h2>
+                <p class="promo-copy">Eligibility and terms apply. View official promotion details.</p>
+              </div>
+              <span class="promo-arrow" aria-hidden="true">↗</span>
+            </a>
+            <div class="market-strip" aria-label="Market categories"><span>FX</span><i></i><span>METALS</span><i></i><span>INDICES</span><i></i><span>ENERGY</span></div>
+            <p class="landing-note">You will continue to the official application flow. This page does not collect funds or trading instructions.</p>
+          </div>
 
-      <section class="screen register-screen" id="register" hidden>
-        <div class="register-wrap">
-          <button class="back-button" type="button" data-go="landing">← 返回首页</button>
-          <div class="register-grid">
-            <div class="register-intro"><p class="eyebrow eyebrow-dark"><span></span> 账户申请</p><h2>选择您的<br /><em>开始方式。</em></h2><p>填写基础信息，进入官方申请流程。您可以先选择模拟账户熟悉平台。</p><div class="help-links"><button type="button" data-info="features">了解平台功能 <span>↗</span></button><button type="button" data-info="products">查看可用产品 <span>↗</span></button><button type="button" data-info="risk">阅读风险提示 <span>↗</span></button></div></div>
-            <div class="register-card"><div class="card-top"><span>账户注册</span><b>⌁ 受保护的流程</b></div><div class="account-tabs" role="tablist"><button type="button" class="tab active" data-mode="real" role="tab" aria-selected="true">真实账户</button><button type="button" class="tab" data-mode="demo" role="tab" aria-selected="false">模拟账户</button></div><form id="register-form"><label>姓名<input name="name" type="text" placeholder="请输入姓名" autocomplete="name" required /></label><label>邮箱<input name="email" type="email" placeholder="请输入邮箱" autocomplete="email" required /></label><label class="agree"><input type="checkbox" required /><span>我已阅读并同意相关条款与隐私政策</span></label><button class="submit button-primary" type="submit">继续 <span>↗</span></button></form><p class="form-footnote">提交后将进入官方账户申请页面。本页不收集资金或交易指令。</p><div class="success" role="status">信息已准备好，请继续完成官方申请。</div></div>
+          <div class="conversion-column">
+            <div class="register-card landing-register-card">
+              <div class="card-top"><span>ACCOUNT OPENING</span><b>⌁ Official application</b></div>
+              <div class="account-tabs" role="tablist">
+                <button type="button" class="tab active" data-mode="real" role="tab" aria-selected="true">Live account</button>
+                <button type="button" class="tab" data-mode="demo" role="tab" aria-selected="false">Demo account</button>
+              </div>
+              <form id="register-form">
+                <label>Full name<input name="name" type="text" placeholder="Enter your full name" autocomplete="name" required /></label>
+                <label>Email address<input name="email" type="email" placeholder="Enter your email address" autocomplete="email" required /></label>
+                <label class="agree"><input type="checkbox" required /><span>I confirm that I have read and agree to the relevant terms and privacy policy.</span></label>
+                <button class="submit button-primary" type="submit">Open an account <span>↗</span></button>
+              </form>
+              <p class="form-footnote">Your details will be handled in the official application flow. This page does not collect funds or trading instructions.</p>
+              <div class="success" role="status">Your information is ready. Continue to complete the official application.</div>
+              <a class="home-info-link" href="details.html">View platform, products &amp; risk information <span aria-hidden="true">↗</span></a>
+            </div>
+
+            <section class="app-download" aria-labelledby="app-download-title">
+              <div class="download-qr">
+                <img src="assets/vt-markets-qrcode.png" alt="QR code for the VT Markets app" />
+                <span>Scan to download</span>
+              </div>
+              <div class="download-content">
+                <p class="download-kicker">TRADE ON MOBILE</p>
+                <h2 id="app-download-title">Download the VT Markets App</h2>
+                <div class="download-badges" aria-label="App download options">
+                  <img src="assets/app_store_btn.svg" alt="Download on the App Store" />
+                  <img src="assets/google_play_btn.svg" alt="Get it on Google Play" />
+                  <img src="assets/apk_file_btn.svg" alt="Download the APK file" />
+                </div>
+              </div>
+            </section>
           </div>
         </div>
       </section>
     </main>
 
-    <div class="info-drawer" aria-hidden="true"><div class="drawer-backdrop" data-close-info></div><aside class="drawer-panel"><button class="drawer-close" type="button" data-close-info aria-label="关闭">×</button><p class="eyebrow eyebrow-dark"><span></span> 进一步了解</p><h2 id="drawer-title">平台功能</h2><div id="drawer-content"></div></aside></div>
-    <footer class="footer"><img src="assets/vt-logo.webp" alt="VT Markets" /><span>© 2026 VT Markets</span><a href="https://www.vtmarketsfr.com/regulation/">法律与监管</a></footer>
-    <script src="script.js"></script>
+    <footer class="footer"><img src="assets/vt-logo.webp" alt="VT Markets" /><span>© 2026 VT Markets</span><a href="https://www.vtmarketsfr.com/regulation/">Legal &amp; regulation</a></footer>
+    <script src="script.js?v=20260903-qrcode-final"></script>
   </body>
 </html>
