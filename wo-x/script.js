@@ -63,5 +63,5 @@ document.querySelectorAll('.tab').forEach((tab) => {
 document.querySelector('#register-form')?.addEventListener('submit', (event) => {
   event.preventDefault();
   document.querySelector('.success')?.classList.add('show');
-  event.currentTarget.querySelector('.submit').innerHTML = '信息已准备好 <span>↗</span>';
+  event.currentTarget.querySelector('.submit').innerHTML = 'Information ready <span>↗</span>';
 });
