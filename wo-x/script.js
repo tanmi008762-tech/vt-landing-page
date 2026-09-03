@@ -1,128 +1,29 @@
-const slides = [...document.querySelectorAll('.banner-slide')];
-const dots = [...document.querySelectorAll('.banner-dot')];
-const rotator = document.querySelector('.banner-rotator');
-const viewport = document.querySelector('.banner-viewport');
-const track = document.querySelector('.banner-track');
-let activeSlide = 0;
-let rotationTimer;
-let pointerStartX = 0;
-let pointerStartY = 0;
-let pointerStartedAt = 0;
-let dragOffset = 0;
-let draggingHorizontally = false;
-let activePointerId = null;
+const info = {
+  features: { title: '平台功能', html: '<p>支持 VT Markets App、MetaTrader、TradingView 和 WebTrader。具体可用平台取决于您的地区与账户类型。</p><ul><li>多设备访问</li><li>图表与市场信息</li><li>多语言客户支持</li></ul>' },
+  products: { title: '可用产品', html: '<p>可了解外汇、贵金属、指数、能源等多类产品。实际可用范围、点差和交易条件请以官方页面为准。</p>' },
+  risk: { title: '风险提示', html: '<p>差价合约（CFD）属于复杂金融产品，因杠杆作用可能快速造成亏损。交易前请确认您理解相关风险，并核实适用的监管实体、产品和账户条件。</p>' }
+};
 
-function setTrackPosition(offset = 0, animate = true) {
-  if (!viewport || !track) return;
-  viewport.classList.toggle('is-dragging', !animate);
-  track.style.transform = `translate3d(${(-activeSlide * viewport.clientWidth) + offset}px, 0, 0)`;
+const drawer = document.querySelector('.info-drawer');
+const drawerTitle = document.querySelector('#drawer-title');
+const drawerContent = document.querySelector('#drawer-content');
+
+function showScreen(target, updateHash = true) {
+  document.querySelectorAll('.screen').forEach((screen) => { screen.hidden = screen.id !== target; });
+  if (updateHash && location.hash !== `#${target}`) history.pushState(null, '', `#${target}`);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-function showSlide(index) {
-  if (!slides.length) return;
-  activeSlide = (index + slides.length) % slides.length;
-  slides.forEach((slide, slideIndex) => {
-    const isActive = slideIndex === activeSlide;
-    slide.classList.toggle('is-active', isActive);
-    slide.setAttribute('aria-hidden', String(!isActive));
-  });
-  dots.forEach((dot, dotIndex) => {
-    const isActive = dotIndex === activeSlide;
-    dot.classList.toggle('is-active', isActive);
-    dot.setAttribute('aria-selected', String(isActive));
-  });
-  setTrackPosition();
-}
-
-function startRotation() {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || slides.length < 2) return;
-  clearInterval(rotationTimer);
-  rotationTimer = window.setInterval(() => showSlide(activeSlide + 1), 5200);
-}
-
-document.querySelector('[data-banner-prev]')?.addEventListener('click', () => {
-  showSlide(activeSlide - 1);
-  startRotation();
-});
-
-document.querySelector('[data-banner-next]')?.addEventListener('click', () => {
-  showSlide(activeSlide + 1);
-  startRotation();
-});
-
-dots.forEach((dot) => {
-  dot.addEventListener('click', () => {
-    showSlide(Number(dot.dataset.bannerDot));
-    startRotation();
+document.querySelectorAll('[data-go]').forEach((button) => {
+  button.addEventListener('click', () => {
+    showScreen(button.dataset.go);
+    if (button.dataset.mode) document.querySelector(`[data-mode="${button.dataset.mode}"]`)?.click();
   });
 });
 
-rotator?.addEventListener('mouseenter', () => clearInterval(rotationTimer));
-rotator?.addEventListener('mouseleave', startRotation);
-rotator?.addEventListener('focusin', () => clearInterval(rotationTimer));
-rotator?.addEventListener('focusout', (event) => {
-  if (!rotator.contains(event.relatedTarget)) startRotation();
-});
-
-viewport?.addEventListener('pointerdown', (event) => {
-  if (event.pointerType === 'mouse' && event.button !== 0) return;
-  clearInterval(rotationTimer);
-  pointerStartX = event.clientX;
-  pointerStartY = event.clientY;
-  pointerStartedAt = performance.now();
-  dragOffset = 0;
-  draggingHorizontally = false;
-  activePointerId = event.pointerId;
-  viewport.setPointerCapture?.(event.pointerId);
-});
-
-viewport?.addEventListener('pointermove', (event) => {
-  if (event.pointerId !== activePointerId) return;
-  const deltaX = event.clientX - pointerStartX;
-  const deltaY = event.clientY - pointerStartY;
-
-  if (!draggingHorizontally && Math.abs(deltaX) < 7) return;
-  if (!draggingHorizontally && Math.abs(deltaY) > Math.abs(deltaX)) return;
-
-  draggingHorizontally = true;
-  dragOffset = deltaX;
-  setTrackPosition(dragOffset, false);
-});
-
-function finishSwipe(event) {
-  if (!viewport || event.pointerId !== activePointerId) return;
-  if (viewport.hasPointerCapture?.(event.pointerId)) viewport.releasePointerCapture(event.pointerId);
-
-  const elapsed = Math.max(performance.now() - pointerStartedAt, 1);
-  const velocity = Math.abs(dragOffset) / elapsed;
-  const threshold = Math.min(viewport.clientWidth * .2, 90);
-  const shouldChange = Math.abs(dragOffset) > threshold || (Math.abs(dragOffset) > 28 && velocity > .45);
-
-  if (draggingHorizontally && shouldChange) {
-    showSlide(activeSlide + (dragOffset < 0 ? 1 : -1));
-  } else {
-    setTrackPosition();
-  }
-
-  dragOffset = 0;
-  draggingHorizontally = false;
-  activePointerId = null;
-  startRotation();
-}
-
-viewport?.addEventListener('pointerup', finishSwipe);
-viewport?.addEventListener('pointercancel', finishSwipe);
-viewport?.addEventListener('keydown', (event) => {
-  if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
-  event.preventDefault();
-  showSlide(activeSlide + (event.key === 'ArrowRight' ? 1 : -1));
-  startRotation();
-});
-
-window.addEventListener('resize', () => setTrackPosition());
-
-showSlide(0);
-startRotation();
+window.addEventListener('hashchange', () => showScreen(location.hash === '#register' ? 'register' : 'landing', false));
+window.addEventListener('popstate', () => showScreen(location.hash === '#register' ? 'register' : 'landing', false));
+if (location.hash === '#register') showScreen('register', false);
 
 document.querySelectorAll('.tab').forEach((tab) => {
   tab.addEventListener('click', () => {
@@ -135,5 +36,19 @@ document.querySelectorAll('.tab').forEach((tab) => {
 document.querySelector('#register-form')?.addEventListener('submit', (event) => {
   event.preventDefault();
   document.querySelector('.success')?.classList.add('show');
-  event.currentTarget.querySelector('.submit').innerHTML = 'Information ready <span>↗</span>';
+  event.currentTarget.querySelector('.submit').textContent = '信息已准备好 ↗';
+});
+
+document.querySelectorAll('[data-info]').forEach((button) => {
+  button.addEventListener('click', () => {
+    const content = info[button.dataset.info];
+    drawerTitle.textContent = content.title;
+    drawerContent.innerHTML = content.html;
+    drawer.classList.add('open');
+    drawer.setAttribute('aria-hidden', 'false');
+  });
+});
+
+document.querySelectorAll('[data-close-info]').forEach((button) => {
+  button.addEventListener('click', () => { drawer.classList.remove('open'); drawer.setAttribute('aria-hidden', 'true'); });
 });
