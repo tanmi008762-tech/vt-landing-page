@@ -1,30 +1,56 @@
-const info = {
-  features: { title: '平台功能', html: '<p>支持 VT Markets App、MetaTrader、TradingView 和 WebTrader。具体可用平台取决于您的地区与账户类型。</p><ul><li>多设备访问</li><li>图表与市场信息</li><li>多语言客户支持</li></ul>' },
-  products: { title: '可用产品', html: '<p>可了解外汇、贵金属、指数、能源等多类产品。实际可用范围、点差和交易条件请以官方页面为准。</p>' },
-  risk: { title: '风险提示', html: '<p>差价合约（CFD）属于复杂金融产品，因杠杆作用可能快速造成亏损。交易前请确认您理解相关风险，并核实适用的监管实体、产品和账户条件。</p>' }
-};
+const slides = [...document.querySelectorAll('.banner-slide')];
+const dots = [...document.querySelectorAll('.banner-dot')];
+const rotator = document.querySelector('.banner-rotator');
+let activeSlide = 0;
+let rotationTimer;
 
-const drawer = document.querySelector('.info-drawer');
-const drawerTitle = document.querySelector('#drawer-title');
-const drawerContent = document.querySelector('#drawer-content');
-
-function showScreen(target, updateHash = true) {
-  const targetScreen = document.getElementById(target);
-  if (targetScreen) document.querySelectorAll('.screen').forEach((screen) => { screen.hidden = screen.id !== target; });
-  if (updateHash && target === 'register' && location.hash !== '#register') history.pushState(null, '', '#register');
-  if (updateHash && target === 'landing' && location.hash) history.pushState(null, '', location.pathname + location.search);
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+function showSlide(index) {
+  if (!slides.length) return;
+  activeSlide = (index + slides.length) % slides.length;
+  slides.forEach((slide, slideIndex) => {
+    const isActive = slideIndex === activeSlide;
+    slide.classList.toggle('is-active', isActive);
+    slide.setAttribute('aria-hidden', String(!isActive));
+  });
+  dots.forEach((dot, dotIndex) => {
+    const isActive = dotIndex === activeSlide;
+    dot.classList.toggle('is-active', isActive);
+    dot.setAttribute('aria-selected', String(isActive));
+  });
 }
 
-document.querySelectorAll('[data-go]').forEach((button) => {
-  button.addEventListener('click', () => {
-    showScreen(button.dataset.go);
-    if (button.dataset.mode) document.querySelector(`[data-mode="${button.dataset.mode}"]`)?.click();
+function startRotation() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || slides.length < 2) return;
+  clearInterval(rotationTimer);
+  rotationTimer = window.setInterval(() => showSlide(activeSlide + 1), 5200);
+}
+
+document.querySelector('[data-banner-prev]')?.addEventListener('click', () => {
+  showSlide(activeSlide - 1);
+  startRotation();
+});
+
+document.querySelector('[data-banner-next]')?.addEventListener('click', () => {
+  showSlide(activeSlide + 1);
+  startRotation();
+});
+
+dots.forEach((dot) => {
+  dot.addEventListener('click', () => {
+    showSlide(Number(dot.dataset.bannerDot));
+    startRotation();
   });
 });
 
-window.addEventListener('hashchange', () => { if (location.hash !== '#register') showScreen('landing', false); });
-window.addEventListener('popstate', () => showScreen('landing', false));
+rotator?.addEventListener('mouseenter', () => clearInterval(rotationTimer));
+rotator?.addEventListener('mouseleave', startRotation);
+rotator?.addEventListener('focusin', () => clearInterval(rotationTimer));
+rotator?.addEventListener('focusout', (event) => {
+  if (!rotator.contains(event.relatedTarget)) startRotation();
+});
+
+showSlide(0);
+startRotation();
 
 document.querySelectorAll('.tab').forEach((tab) => {
   tab.addEventListener('click', () => {
@@ -38,18 +64,4 @@ document.querySelector('#register-form')?.addEventListener('submit', (event) => 
   event.preventDefault();
   document.querySelector('.success')?.classList.add('show');
   event.currentTarget.querySelector('.submit').innerHTML = '信息已准备好 <span>↗</span>';
-});
-
-document.querySelectorAll('[data-info]').forEach((button) => {
-  button.addEventListener('click', () => {
-    const content = info[button.dataset.info];
-    drawerTitle.textContent = content.title;
-    drawerContent.innerHTML = content.html;
-    drawer.classList.add('open');
-    drawer.setAttribute('aria-hidden', 'false');
-  });
-});
-
-document.querySelectorAll('[data-close-info]').forEach((button) => {
-  button.addEventListener('click', () => { drawer.classList.remove('open'); drawer.setAttribute('aria-hidden', 'true'); });
 });

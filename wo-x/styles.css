@@ -11,3 +11,106 @@
 .home-help-links button span{color:var(--blue);font-size:14px}
 @media(max-width:800px){.landing-layout{width:86vw;gap:45px}.landing-layout .landing-content{margin-left:0;width:auto}}
 @media(max-width:650px){.landing-layout{display:flex;flex-direction:column;align-items:stretch;width:auto;margin:0;padding:0 20px}.landing-layout .landing-content{padding:58px 0 25px}.landing-register-card{max-width:none;justify-self:stretch;margin-bottom:36px}.landing-layout .landing-copy{margin-bottom:0}.landing-layout .landing-note{display:none}}
+
+/* Banner rotation and the unified information dropdown */
+.banner-rotator{min-height:292px;display:flex;flex-direction:column;justify-content:space-between}
+.banner-slide{display:none;animation:banner-in .42s ease both}
+.banner-slide.is-active{display:block}
+.banner-kicker{margin:0 0 18px;color:#8edfff;font-size:11px;font-weight:700;letter-spacing:.15em}
+.banner-copy{max-width:445px;margin:24px 0 0;color:#bdc9d5;font-size:16px;line-height:1.7}
+.banner-controls{display:flex;align-items:center;gap:15px;margin-top:25px}
+.banner-arrow{width:30px;height:30px;border:1px solid rgba(255,255,255,.34);border-radius:50%;background:transparent;color:#fff;font-size:15px;line-height:1;cursor:pointer}
+.banner-arrow:hover,.banner-arrow:focus-visible{border-color:var(--cyan);color:var(--cyan);outline:none}
+.banner-dots{display:flex;align-items:center;gap:7px}
+.banner-dot{width:22px;height:3px;border:0;border-radius:2px;background:rgba(255,255,255,.35);padding:0;cursor:pointer}
+.banner-dot.is-active{background:var(--cyan)}
+.landing-promo{display:flex;align-items:flex-start;gap:12px;margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.18);max-width:500px}
+.landing-promo>span{flex:0 0 auto;color:var(--cyan);font-size:10px;font-weight:700;letter-spacing:.12em}
+.landing-promo p{margin:0;color:#aebdca;font-size:11px;line-height:1.55}
+.home-info-dropdown{margin-top:20px;border-top:1px solid var(--line)}
+.home-info-dropdown summary{display:flex;align-items:center;justify-content:space-between;padding:13px 0;color:#536779;font-size:11px;cursor:pointer;list-style:none}
+.home-info-dropdown summary::-webkit-details-marker{display:none}
+.home-info-dropdown summary span{color:var(--blue);font-size:17px;line-height:1;transition:transform .2s ease}
+.home-info-dropdown[open] summary span{transform:rotate(180deg)}
+.dropdown-content{border-top:1px solid var(--line);padding:2px 0 5px}
+.dropdown-content section{padding:12px 0;border-bottom:1px solid var(--line)}
+.dropdown-content section:last-child{border-bottom:0}
+.dropdown-content h3{margin:0 0 6px;font-family:'DM Sans',Arial,sans-serif;font-size:11px;letter-spacing:0;color:#2c4357}
+.dropdown-content p{margin:0;color:#7d8996;font-size:10px;line-height:1.6}
+@keyframes banner-in{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:650px){
+  .banner-rotator{min-height:330px}
+  .banner-kicker{margin-bottom:16px}
+  .banner-copy{font-size:15px;margin-top:19px}
+  .banner-controls{margin-top:23px}
+  .landing-promo{margin-top:14px;padding-top:13px}
+  .landing-promo p{font-size:10px}
+  .home-info-dropdown{margin-top:18px}
+}
+@media(prefers-reduced-motion:reduce){.banner-slide{animation:none}}
+
+/* Large promotional placement on the landing screen */
+.landing-layout .landing-promo{position:relative;display:block;max-width:510px;min-height:154px;margin-top:18px;padding:18px 56px 19px 21px;border:2px solid var(--cyan);background:linear-gradient(110deg,rgba(18,105,180,.38),rgba(8,21,37,.26));box-shadow:0 15px 32px rgba(0,0,0,.18);color:#fff;text-decoration:none;overflow:hidden;transition:transform .2s ease,border-color .2s ease,background .2s ease}
+.landing-layout .landing-promo::after{content:'';position:absolute;width:180px;height:180px;right:-90px;top:-112px;border-radius:50%;background:rgba(84,217,255,.16);filter:blur(2px)}
+.landing-layout .landing-promo:hover,.landing-layout .landing-promo:focus-visible{border-color:#fff;background:linear-gradient(110deg,rgba(23,103,243,.6),rgba(8,21,37,.32));transform:translateY(-2px);outline:none}
+.promo-label{position:relative;z-index:1;display:inline-flex;align-items:center;gap:8px;color:var(--cyan);font-size:10px;font-weight:700;letter-spacing:.13em}
+.promo-label::before{content:'';width:22px;height:1px;background:currentColor}
+.promo-main{position:relative;z-index:1;display:flex;align-items:baseline;gap:16px;margin-top:8px}
+.promo-kicker{display:none}
+.promo-main h2{margin:0;color:#fff;font-size:clamp(27px,3.05vw,39px);line-height:1.07;font-weight:600}
+.promo-main h2 em{color:var(--cyan)}
+.promo-copy{max-width:182px;margin:0;color:#d4e2ed;font-size:11px;line-height:1.65}
+.promo-arrow{position:absolute;z-index:1;right:19px;bottom:17px;color:var(--cyan);font-size:22px;line-height:1}
+.home-info-link{display:flex;align-items:center;justify-content:space-between;margin-top:20px;padding:13px 0;border-top:1px solid var(--line);color:#536779;text-decoration:none;font-size:11px;transition:color .2s ease}
+.home-info-link span{color:var(--blue);font-size:17px;line-height:1}
+.home-info-link:hover,.home-info-link:focus-visible{color:var(--blue);outline:none}
+
+/* Secondary information page */
+.details-page{min-height:100vh;background:var(--paper)}
+.details-hero{display:flex;align-items:flex-end;justify-content:space-between;gap:35px;min-height:337px;padding:68px max(7vw,38px) 58px;background:linear-gradient(112deg,#071423 0%,#0d2943 62%,#123e62 100%);color:#fff}
+.details-hero>div{max-width:650px}
+.details-hero h1{font-size:clamp(42px,5vw,68px)}
+.details-hero>div>p:not(.eyebrow){margin:22px 0 0;color:#bdc9d5;font-size:15px;line-height:1.65}
+.details-register{flex:0 0 auto;margin-bottom:5px;text-decoration:none}
+.details-content{width:min(1150px,86vw);margin:0 auto;padding:52px 0 68px}
+.detail-card{padding:28px;border:1px solid var(--line);background:#fff;box-shadow:0 13px 28px rgba(25,49,73,.06)}
+.detail-card h2{font-size:clamp(28px,3vw,40px);line-height:1.08}
+.detail-card p:not(.detail-tag){margin:19px 0 0;color:#697887;font-size:13px;line-height:1.7}
+.detail-tag{margin:0 0 18px;color:#2470d8;font-size:10px;font-weight:700;letter-spacing:.13em}
+.detail-offer{position:relative;min-height:245px;margin-bottom:24px;padding:35px;overflow:hidden;border-color:#2b8cf6;background:linear-gradient(112deg,#075ebe 0%,#123f7d 100%);box-shadow:0 20px 35px rgba(15,83,160,.17)}
+.detail-offer::after{content:'';position:absolute;width:360px;height:360px;right:-150px;top:-230px;border:1px solid rgba(255,255,255,.25);border-radius:50%;box-shadow:0 0 0 42px rgba(255,255,255,.06),0 0 0 85px rgba(255,255,255,.04)}
+.detail-offer>*{position:relative;z-index:1}
+.detail-offer .detail-tag{color:#7ce5ff}
+.detail-offer h2{color:#fff;font-size:clamp(34px,4vw,52px)}
+.detail-offer h2 em{color:#7ce5ff}
+.detail-offer p:not(.detail-tag){max-width:440px;color:#d6e6f8}
+.detail-offer a{display:inline-flex;align-items:center;gap:9px;margin-top:20px;color:#fff;font-size:12px;font-weight:700;text-decoration:none}
+.detail-offer a span{color:#7ce5ff;font-size:17px}
+.detail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.detail-grid .detail-card{min-height:284px}
+.detail-risk{border-color:#c7d3df;background:#f8fafc}
+.detail-risk .detail-tag{color:#a15d30}
+.detail-risk h2{color:#26394a}
+@media(max-width:800px){
+  .promo-main{display:block}
+  .promo-copy{max-width:360px;margin-top:10px}
+  .details-hero{padding:58px 7vw 48px}
+  .details-content{width:86vw}
+  .detail-grid{grid-template-columns:1fr}
+  .detail-grid .detail-card{min-height:0}
+}
+@media(max-width:650px){
+  .landing-layout .landing-promo{min-height:185px;margin-top:16px;padding:18px 45px 20px 18px}
+  .promo-main h2{font-size:31px}
+  .promo-copy{max-width:260px;font-size:11px}
+  .home-info-link{margin-top:18px;padding:14px 0;font-size:10px}
+  .details-hero{display:block;min-height:0;padding:53px 20px 45px}
+  .details-hero h1{font-size:45px}
+  .details-hero>div>p:not(.eyebrow){font-size:14px}
+  .details-register{margin-top:27px}
+  .details-content{width:auto;padding:27px 20px 45px}
+  .detail-offer{min-height:0;margin-bottom:15px;padding:26px 22px}
+  .detail-card{padding:23px 21px}
+  .detail-offer h2{font-size:40px}
+  .detail-card p:not(.detail-tag){font-size:12px}
+}

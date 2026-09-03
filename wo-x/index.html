@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="VT Markets 账户注册入口。填写基本信息，开始账户申请。" />
+    <meta name="description" content="VT Markets 账户注册入口。查看活动信息并开始账户申请。" />
     <title>VT Markets | 开始注册</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,13 +22,46 @@
         <div class="landing-layout">
           <div class="landing-content">
             <p class="eyebrow"><span></span> VT Markets · 全球多资产平台</p>
-            <h1>开始注册，<br /><em>从这里开始。</em></h1>
-            <p class="landing-copy">填写基本信息，进入官方账户申请流程。</p>
+            <div class="banner-rotator" aria-label="活动与平台信息">
+              <article class="banner-slide is-active" data-slide="0">
+                <p class="banner-kicker">账户服务</p>
+                <h1>清晰的申请流程，<br /><em>从选择开始。</em></h1>
+                <p class="banner-copy">选择适合您的账户类型，按步骤完成申请。</p>
+              </article>
+              <article class="banner-slide" data-slide="1" aria-hidden="true">
+                <p class="banner-kicker">优惠信息</p>
+                <h1>查看当前活动，<br /><em>了解适用条件。</em></h1>
+                <p class="banner-copy">注册后可查看最新活动与适用条款，具体以官方页面为准。</p>
+              </article>
+              <article class="banner-slide" data-slide="2" aria-hidden="true">
+                <p class="banner-kicker">平台选择</p>
+                <h1>了解多元产品，<br /><em>再决定申请方式。</em></h1>
+                <p class="banner-copy">查看平台功能与可用产品信息，按需开始账户申请。</p>
+              </article>
+              <div class="banner-controls" aria-label="切换 Banner">
+                <button type="button" class="banner-arrow" data-banner-prev aria-label="上一页">←</button>
+                <div class="banner-dots" role="tablist" aria-label="Banner 页面">
+                  <button type="button" class="banner-dot is-active" data-banner-dot="0" role="tab" aria-selected="true" aria-label="第 1 页"></button>
+                  <button type="button" class="banner-dot" data-banner-dot="1" role="tab" aria-selected="false" aria-label="第 2 页"></button>
+                  <button type="button" class="banner-dot" data-banner-dot="2" role="tab" aria-selected="false" aria-label="第 3 页"></button>
+                </div>
+                <button type="button" class="banner-arrow" data-banner-next aria-label="下一页">→</button>
+              </div>
+            </div>
+            <a class="landing-promo" href="details.html#offers">
+              <div class="promo-label">优惠信息</div>
+              <div class="promo-main">
+                <p class="promo-kicker">注册礼遇</p>
+                <h2>注册后查看<br /><em>当前优惠活动</em></h2>
+                <p class="promo-copy">了解最新活动与适用条件，具体内容以官方页面为准。</p>
+              </div>
+              <span class="promo-arrow" aria-hidden="true">↗</span>
+            </a>
             <p class="landing-note">提交后将进入官方申请页面。本页不收集资金或交易指令。</p>
           </div>
 
           <div class="register-card landing-register-card">
-            <div class="card-top"><span>账户注册</span><b>⌁ 受保护的流程</b></div>
+            <div class="card-top"><span>账户注册</span><b>⌁ 官方申请流程</b></div>
             <div class="account-tabs" role="tablist">
               <button type="button" class="tab active" data-mode="real" role="tab" aria-selected="true">真实账户</button>
               <button type="button" class="tab" data-mode="demo" role="tab" aria-selected="false">模拟账户</button>
@@ -41,17 +74,12 @@
             </form>
             <p class="form-footnote">提交后将进入官方账户申请页面。本页不收集资金或交易指令。</p>
             <div class="success" role="status">信息已准备好，请继续完成官方申请。</div>
-            <div class="home-help-links">
-              <button type="button" data-info="features">了解平台功能 <span>↗</span></button>
-              <button type="button" data-info="products">查看可用产品 <span>↗</span></button>
-              <button type="button" data-info="risk">阅读风险提示 <span>↗</span></button>
-            </div>
+            <a class="home-info-link" href="details.html">查看平台功能、可用产品与风险提示 <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </section>
     </main>
 
-    <div class="info-drawer" aria-hidden="true"><div class="drawer-backdrop" data-close-info></div><aside class="drawer-panel"><button class="drawer-close" type="button" data-close-info aria-label="关闭">×</button><p class="eyebrow eyebrow-dark"><span></span> 进一步了解</p><h2 id="drawer-title">平台功能</h2><div id="drawer-content"></div></aside></div>
     <footer class="footer"><img src="assets/vt-logo.webp" alt="VT Markets" /><span>© 2026 VT Markets</span><a href="https://www.vtmarketsfr.com/regulation/">法律与监管</a></footer>
     <script src="script.js"></script>
   </body>
