@@ -57,9 +57,13 @@ h1, h2, h3 { margin: 0; font-family: 'Space Grotesk', Arial, sans-serif; letter-
 h1 { font-size: clamp(46px, 5.2vw, 72px); line-height: .99; font-weight: 700; }
 h1 em, h2 em { color: var(--cyan); font-style: normal; }
 
-.banner-rotator { min-height: 292px; display: flex; flex-direction: column; justify-content: space-between; }
-.banner-slide { display: none; animation: banner-in .42s ease both; }
-.banner-slide.is-active { display: block; }
+.banner-rotator { min-height: 292px; display: flex; min-width: 0; flex-direction: column; justify-content: space-between; }
+.banner-viewport { width: 100%; min-width: 0; overflow: hidden; cursor: grab; touch-action: pan-y; user-select: none; -webkit-user-select: none; outline: none; }
+.banner-viewport:focus-visible { border-radius: 3px; box-shadow: 0 0 0 2px rgba(143,228,255,.55); }
+.banner-viewport.is-dragging { cursor: grabbing; }
+.banner-track { display: flex; width: 100%; will-change: transform; transition: transform .46s cubic-bezier(.22,.72,.24,1); }
+.banner-viewport.is-dragging .banner-track { transition: none; }
+.banner-slide { display: block; flex: 0 0 100%; min-width: 0; }
 .banner-kicker { margin: 0 0 17px; color: #9be8ff; font-size: 11px; font-weight: 700; letter-spacing: .18em; }
 .banner-copy { max-width: 470px; margin: 25px 0 0; color: #eef4fa; font-size: 17px; line-height: 1.65; }
 .banner-controls { display: flex; align-items: center; gap: 15px; margin-top: 25px; }
@@ -187,6 +191,8 @@ h1 em, h2 em { color: var(--cyan); font-style: normal; }
   .landing-layout .landing-register-card { max-width: none; margin-bottom: 36px; }
   .landing-content h1 { font-size: 49px; }
   .banner-rotator { min-height: 330px; }
+  .banner-viewport { margin: 0 -8px; width: calc(100% + 16px); }
+  .banner-slide { padding: 0 8px; }
   .banner-copy { font-size: 15px; }
   .banner-controls { margin-top: 23px; }
   .landing-promo { min-height: 185px; margin-top: 16px; padding: 18px 45px 20px 18px; }
