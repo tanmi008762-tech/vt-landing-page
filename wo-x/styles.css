@@ -90,6 +90,7 @@ h1 em, h2 em { color: var(--cyan); font-style: normal; }
 .market-strip i { display: block; width: 22px; height: 1px; background: rgba(143,228,255,.38); }
 .landing-note { max-width: 450px; margin: 21px 0 0; color: #9baab8; font-size: 10px; line-height: 1.6; }
 
+.conversion-column { width: 100%; max-width: 410px; justify-self: end; display: grid; gap: 18px; }
 .register-card { position: relative; width: 100%; background: #fff; padding: 31px 31px 27px; border-radius: 5px; box-shadow: 0 28px 70px rgba(0,5,20,.42); }
 .register-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, var(--blue), #57d9ff); }
 .landing-layout .register-card { max-width: 410px; justify-self: end; }
@@ -113,6 +114,18 @@ h1 em, h2 em { color: var(--cyan); font-style: normal; }
 .home-info-link { display: flex; align-items: center; justify-content: space-between; margin-top: 20px; padding: 13px 0; border-top: 1px solid var(--line); color: #536779; text-decoration: none; font-size: 11px; }
 .home-info-link span { color: var(--blue); font-size: 17px; line-height: 1; }
 .home-info-link:hover, .home-info-link:focus-visible { color: var(--blue); outline: none; }
+
+.app-download { position: relative; display: grid; grid-template-columns: 98px minmax(0,1fr); gap: 16px; align-items: center; min-height: 0; padding: 12px 16px; overflow: hidden; border: 0; color: #fff; background: linear-gradient(125deg,rgba(8,32,72,.97),rgba(7,17,42,.96) 58%,rgba(13,39,78,.94)); box-shadow: 0 20px 44px rgba(0,5,20,.26), inset 0 1px rgba(255,255,255,.05); }
+.app-download::before { display: none; }
+.app-download::after { content: ''; position: absolute; right: -68px; bottom: -82px; width: 180px; height: 180px; border: 1px solid rgba(104,221,255,.18); border-radius: 50%; box-shadow: 0 0 0 24px rgba(60,123,255,.035); pointer-events: none; }
+.download-qr, .download-content { position: relative; z-index: 1; min-width: 0; }
+.download-qr { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+.download-qr img { display: block; width: 94px; height: 94px; padding: 4px; border-radius: 4px; background: #fff; box-shadow: 0 10px 24px rgba(0,0,0,.24); }
+.download-qr span { color: #9fb5ca; font-size: 8px; letter-spacing: .04em; white-space: nowrap; }
+.download-kicker { margin: 0 0 5px; color: var(--cyan); font-size: 8px; font-weight: 700; letter-spacing: .14em; }
+.download-content h2 { color: #fff; font-size: 20px; line-height: 1.04; letter-spacing: -.035em; }
+.download-badges { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); align-items: center; gap: 5px; margin-top: 8px; }
+.download-badges img { display: block; justify-self: stretch; width: 100%; max-width: 100%; height: auto; }
 
 .footer { height: 52px; display: flex; align-items: center; gap: 21px; padding: 0 clamp(24px,7vw,112px); color: #7c8d9e; background: #051323; font-size: 10px; }
 .footer img { width: 106px; margin-right: auto; }
@@ -190,7 +203,8 @@ h1 em, h2 em { color: var(--cyan); font-style: normal; }
   .market-wave { right: -28%; width: 130%; height: 44%; opacity: .2; }
   .landing-layout { display: flex; flex-direction: column; align-items: stretch; width: auto; margin: 0; padding: 0 20px; }
   .landing-content { padding: 58px 0 25px; }
-  .landing-layout .landing-register-card { max-width: none; margin-bottom: 36px; }
+  .conversion-column { max-width: none; margin-bottom: 36px; }
+  .landing-layout .landing-register-card { max-width: none; margin-bottom: 0; }
   .landing-content h1 { font-size: 49px; }
   .banner-rotator { min-height: 330px; }
   .banner-viewport { margin: 0 -8px; width: calc(100% + 16px); }
@@ -251,6 +265,10 @@ h1 em, h2 em { color: var(--cyan); font-style: normal; }
   .submit { min-height: 48px; font-size: 14px; }
   .account-tabs .tab { min-height: 44px; font-size: 13px; }
   .agree { font-size: 11px; }
+  .app-download { grid-template-columns: 86px minmax(0,1fr); gap: 13px; min-height: 0; padding: 12px 14px; }
+  .download-qr img { width: 82px; height: 82px; }
+  .download-content h2 { font-size: 18px; }
+  .download-badges { gap: 5px; margin-top: 8px; }
   .footer { padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right)); padding-bottom: max(19px, env(safe-area-inset-bottom)); }
   .details-hero { padding-left: 16px; padding-right: 16px; }
   .details-hero h1 { font-size: 40px; }
@@ -260,6 +278,11 @@ h1 em, h2 em { color: var(--cyan); font-style: normal; }
 @media (max-width: 370px) {
   .header-actions > a:not(.header-open) { display: none; }
   .landing-content h1 { font-size: 36px; }
+  .app-download { grid-template-columns: 76px minmax(0,1fr); gap: 10px; padding: 11px; }
+  .download-qr img { width: 72px; height: 72px; }
+  .download-qr span { font-size: 7px; }
+  .download-content h2 { font-size: 17px; }
+  .download-badges { gap: 4px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

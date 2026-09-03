@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20260903-mobilefix2" />
+    <link rel="stylesheet" href="styles.css?v=20260903-qrcode-row" />
   </head>
   <body>
     <header class="header">
@@ -79,21 +79,39 @@
             <p class="landing-note">You will continue to the official application flow. This page does not collect funds or trading instructions.</p>
           </div>
 
-          <div class="register-card landing-register-card">
-            <div class="card-top"><span>ACCOUNT OPENING</span><b>⌁ Official application</b></div>
-            <div class="account-tabs" role="tablist">
-              <button type="button" class="tab active" data-mode="real" role="tab" aria-selected="true">Live account</button>
-              <button type="button" class="tab" data-mode="demo" role="tab" aria-selected="false">Demo account</button>
+          <div class="conversion-column">
+            <div class="register-card landing-register-card">
+              <div class="card-top"><span>ACCOUNT OPENING</span><b>⌁ Official application</b></div>
+              <div class="account-tabs" role="tablist">
+                <button type="button" class="tab active" data-mode="real" role="tab" aria-selected="true">Live account</button>
+                <button type="button" class="tab" data-mode="demo" role="tab" aria-selected="false">Demo account</button>
+              </div>
+              <form id="register-form">
+                <label>Full name<input name="name" type="text" placeholder="Enter your full name" autocomplete="name" required /></label>
+                <label>Email address<input name="email" type="email" placeholder="Enter your email address" autocomplete="email" required /></label>
+                <label class="agree"><input type="checkbox" required /><span>I confirm that I have read and agree to the relevant terms and privacy policy.</span></label>
+                <button class="submit button-primary" type="submit">Open an account <span>↗</span></button>
+              </form>
+              <p class="form-footnote">Your details will be handled in the official application flow. This page does not collect funds or trading instructions.</p>
+              <div class="success" role="status">Your information is ready. Continue to complete the official application.</div>
+              <a class="home-info-link" href="details.html">View platform, products &amp; risk information <span aria-hidden="true">↗</span></a>
             </div>
-            <form id="register-form">
-              <label>Full name<input name="name" type="text" placeholder="Enter your full name" autocomplete="name" required /></label>
-              <label>Email address<input name="email" type="email" placeholder="Enter your email address" autocomplete="email" required /></label>
-              <label class="agree"><input type="checkbox" required /><span>I confirm that I have read and agree to the relevant terms and privacy policy.</span></label>
-              <button class="submit button-primary" type="submit">Open an account <span>↗</span></button>
-            </form>
-            <p class="form-footnote">Your details will be handled in the official application flow. This page does not collect funds or trading instructions.</p>
-            <div class="success" role="status">Your information is ready. Continue to complete the official application.</div>
-            <a class="home-info-link" href="details.html">View platform, products &amp; risk information <span aria-hidden="true">↗</span></a>
+
+            <section class="app-download" aria-labelledby="app-download-title">
+              <div class="download-qr">
+                <img src="assets/vt-markets-qrcode.png" alt="QR code for the VT Markets app" />
+                <span>Scan to download</span>
+              </div>
+              <div class="download-content">
+                <p class="download-kicker">TRADE ON MOBILE</p>
+                <h2 id="app-download-title">Download the<br />VT Markets App</h2>
+                <div class="download-badges" aria-label="App download options">
+                  <img src="assets/app_store_btn.svg" alt="Download on the App Store" />
+                  <img src="assets/google_play_btn.svg" alt="Get it on Google Play" />
+                  <img src="assets/apk_file_btn.svg" alt="Download the APK file" />
+                </div>
+              </div>
+            </section>
           </div>
         </div>
       </section>
