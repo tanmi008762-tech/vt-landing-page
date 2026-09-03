@@ -11,7 +11,8 @@
 
 * { box-sizing: border-box; }
 html, body { margin: 0; min-height: 100%; }
-body { color: var(--ink); font-family: 'DM Sans', Arial, sans-serif; background: var(--navy); }
+html { -webkit-text-size-adjust: 100%; }
+body { overflow-x: hidden; color: var(--ink); font-family: 'DM Sans', Arial, sans-serif; background: var(--navy); }
 button, input { font: inherit; }
 a { color: inherit; }
 
@@ -56,6 +57,7 @@ a { color: inherit; }
 h1, h2, h3 { margin: 0; font-family: 'Space Grotesk', Arial, sans-serif; letter-spacing: -.045em; }
 h1 { font-size: clamp(46px, 5.2vw, 72px); line-height: .99; font-weight: 700; }
 h1 em, h2 em { color: var(--cyan); font-style: normal; }
+.mobile-break { display: none; }
 
 .banner-rotator { min-height: 292px; display: flex; min-width: 0; flex-direction: column; justify-content: space-between; }
 .banner-viewport { width: 100%; min-width: 0; overflow: hidden; cursor: grab; touch-action: pan-y; user-select: none; -webkit-user-select: none; outline: none; }
@@ -215,6 +217,49 @@ h1 em, h2 em { color: var(--cyan); font-style: normal; }
   .detail-card { padding: 23px 21px; }
   .detail-offer h2 { font-size: 40px; }
   .detail-card p:not(.detail-tag) { font-size: 12px; }
+}
+
+@media (max-width: 430px) {
+  .header { height: 62px; gap: 12px; padding-left: max(14px, env(safe-area-inset-left)); padding-right: max(14px, env(safe-area-inset-right)); }
+  .brand img { width: 104px; }
+  .header-actions { gap: 10px; }
+  .header-actions .header-open { padding: 10px 11px; font-size: 10px; white-space: nowrap; }
+  .header-actions > a:not(.header-open) { font-size: 10px; white-space: nowrap; }
+  .landing-screen { min-height: calc(100svh - 62px); }
+  .landing-layout { width: 100%; padding: 0 16px; }
+  .landing-content { padding: 38px 0 22px; }
+  .eyebrow { gap: 8px; margin-bottom: 20px; font-size: 8px; letter-spacing: .12em; line-height: 1.45; }
+  .eyebrow span { width: 20px; flex: 0 0 20px; }
+  .landing-content h1 { font-size: clamp(38px, 10.5vw, 43px); line-height: 1; }
+  .mobile-break { display: inline; }
+  .banner-rotator { min-height: 298px; }
+  .banner-viewport { margin: 0 -4px; width: calc(100% + 8px); }
+  .banner-slide { padding: 0 4px; }
+  .banner-kicker { margin-bottom: 13px; font-size: 10px; }
+  .banner-copy { margin-top: 19px; font-size: 14px; line-height: 1.55; }
+  .banner-controls { gap: 12px; margin-top: 18px; }
+  .banner-arrow { width: 40px; height: 40px; font-size: 17px; }
+  .banner-dot { width: 27px; height: 4px; }
+  .landing-promo { width: 100%; min-height: 170px; padding: 17px 42px 18px 17px; }
+  .promo-main { margin-top: 10px; }
+  .promo-main h2 { font-size: 29px; }
+  .promo-copy { max-width: 245px; margin-top: 9px; line-height: 1.5; }
+  .market-strip { justify-content: space-between; gap: 6px; width: 100%; }
+  .market-strip i { flex: 1 1 auto; max-width: 18px; }
+  .landing-layout .register-card { padding: 23px 18px 22px; border-radius: 4px; }
+  .register-card input[type=text], .register-card input[type=email] { height: 48px; font-size: 16px; }
+  .submit { min-height: 48px; font-size: 14px; }
+  .account-tabs .tab { min-height: 44px; font-size: 13px; }
+  .agree { font-size: 11px; }
+  .footer { padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right)); padding-bottom: max(19px, env(safe-area-inset-bottom)); }
+  .details-hero { padding-left: 16px; padding-right: 16px; }
+  .details-hero h1 { font-size: 40px; }
+  .details-content { padding-left: 16px; padding-right: 16px; }
+}
+
+@media (max-width: 370px) {
+  .header-actions > a:not(.header-open) { display: none; }
+  .landing-content h1 { font-size: 36px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
